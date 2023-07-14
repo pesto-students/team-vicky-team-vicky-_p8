@@ -65,8 +65,8 @@ function Index() {
                       {title}
                     </th>
                     <td className="px-6 py-4">{category}</td>
-                    <td className="px-6 py-4">{price}</td>
-                    <td className="px-6 py-4">{deliveryTime}</td>
+                    <td className="px-6 py-4">{price}$</td>
+                    <td className="px-6 py-4">{deliveryTime} days</td>
                     <td className="px-6 py-4 text-right">
                       <Link
                         href={`/seller/gigs/${id}`}

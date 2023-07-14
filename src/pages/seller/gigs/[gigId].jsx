@@ -51,7 +51,7 @@ function EditGig() {
           data: { gig },
         } = await axios.get(`${GET_GIG_DATA}/${gigId}`);
 
-        setData({ ...gig, time: gig.revisions });
+        setData({ ...gig, time: gig.deliveryTime });
         setfeatures(gig.features);
 
         gig.images.forEach((image) => {

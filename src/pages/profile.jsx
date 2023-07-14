@@ -85,16 +85,12 @@ function Profile() {
           formData.append("images", image);
           const {
             data: { img },
-          } = await axios.post(
-            SET_USER_IMAGE,
-            { jwt: cookies.jwt, ...formData },
-            {
-              withCredentials: true,
-              headers: {
-                "Content-Type": "multipart/form-data",
-              },
-            }
-          );
+          } = await axios.post(SET_USER_IMAGE, formData, {
+            withCredentials: true,
+            headers: {
+              "Content-Type": "multipart/form-data",
+            },
+          });
           imageName = img;
         }
 

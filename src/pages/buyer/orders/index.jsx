@@ -24,7 +24,7 @@ function Orders() {
   return (
     <div className="min-h-[80vh] my-10 mt-0 px-32">
       <h3 className="m-5 text-2xl font-semibold">All your Orders</h3>
-      <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
+      <div className="relative overflow-x-auto shadow-2xl  sm:rounded-lg">
         {orders.length == 0 ? (
           <NoRecords title="orders" />
         ) : (
@@ -69,7 +69,7 @@ function Orders() {
                     </th>
                     <td className="px-6 py-4">{order.gig.category}</td>
                     <td className="px-6 py-4">{order.price}</td>
-                    <td className="px-6 py-4">{order.gig.deliveryTime}</td>
+                    <td className="px-6 py-4">{order.gig.deliveryTime} days</td>
                     <td className="px-6 py-4">
                       {order.createdAt.split("T")[0]}
                     </td>

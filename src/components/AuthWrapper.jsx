@@ -7,7 +7,7 @@ import { MdFacebook } from "react-icons/md";
 import { useRouter } from "next/router";
 import { useStateProvider } from "../context/StateContext";
 import { reducerCases } from "../context/constants";
-import { ToastSucess } from "../utils/Toast";
+import { ToastError, ToastSucess } from "../utils/Toast";
 
 function AuthWrapper({ type }) {
   const [cookies, setCookies] = useCookies();
@@ -53,6 +53,7 @@ function AuthWrapper({ type }) {
       }
     } catch (err) {
       console.log(err);
+      ToastError(err?.response?.data);
     }
   };
 

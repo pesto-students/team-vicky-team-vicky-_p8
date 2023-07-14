@@ -7,6 +7,7 @@ function Search() {
   const router = useRouter();
   const { category, q } = router.query;
   const [gigs, setGigs] = useState(undefined);
+  const [render, setRender] = useState(false);
   useEffect(() => {
     const getData = async () => {
       try {
@@ -22,6 +23,10 @@ function Search() {
     };
     if (category || q) getData();
   }, [category, q]);
+
+  useEffect(() => {}, [render]);
+
+  console.log("gigs", gigs);
   return (
     <>
       {gigs && (
@@ -32,13 +37,46 @@ function Search() {
             </h3>
           )}
           <div className="flex gap-4">
-            <button className="py-3 px-5 border border-gray-400 rounded-lg font-medium">
+            <button
+              className="py-3 px-5 border border-gray-400 rounded-lg font-medium"
+              onClick={() => {
+                const sortedGigs = gigs.sort((a, b) =>
+                  a.category > b.category ? 1 : -1
+                );
+
+                // console.log("soreted category", sortedGigs);
+                setGigs(sortedGigs);
+                setRender(!render);
+              }}
+            >
               Category
             </button>
-            <button className="py-3 px-5 border border-gray-400 rounded-lg font-medium">
+            <button
+              className="py-3 px-5 border border-gray-400 rounded-lg font-medium"
+              onClick={() => {
+                const sortedGigs = gigs.sort((a, b) =>
+                  a?.price > b?.price ? 1 : -1
+                );
+
+                console.table("soreted category", sortedGigs);
+                setGigs(sortedGigs);
+                setRender(!render);
+              }}
+            >
               Budget
             </button>
-            <button className="py-3 px-5 border border-gray-400 rounded-lg font-medium">
+            <button
+              className="py-3 px-5 border border-gray-400 rounded-lg font-medium"
+              onClick={() => {
+                const sortedGigs = gigs.sort((a, b) =>
+                  a?.deliveryTime > b?.deliveryTime ? 1 : -1
+                );
+
+                console.table("soreted category", sortedGigs);
+                setGigs(sortedGigs);
+                setRender(!render);
+              }}
+            >
               Delivery Time
             </button>
           </div>

@@ -22,7 +22,7 @@ function Orders() {
     if (userInfo) getOrders();
   }, [userInfo]);
   return (
-    <div className="min-h-[80vh] my-10 mt-0 px-32">
+    <div className="min-h-[80vh] shadow-2xl my-10 mt-0 px-32">
       <h3 className="m-5 text-2xl font-semibold">All your Orders</h3>
       <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
         {orders.length == 0 ? (
@@ -67,23 +67,23 @@ function Orders() {
                     className="bg-white dark:bg-gray-800 hover:bg-gray-50"
                     key={order.id}
                   >
-                    <th scope="row" className="px-6 py-4 ">
+                    <th scope="row" className="px-5 py-3 ">
                       {order.id}
                     </th>
-                    <th scope="row" className="px-6 py-4 font-medium">
+                    <th scope="row" className="px-5 py-3 font-medium">
                       {order.gig.title}
                     </th>
-                    <td className="px-6 py-4">{order.gig.category}</td>
-                    <td className="px-6 py-4">{order.price}</td>
-                    <td className="px-6 py-4">{order.gig.deliveryTime}</td>
-                    <td className="px-6 py-4">
+                    <td className="px-5 py-3">{order.gig.category}</td>
+                    <td className="px-5 py-3">{order.price}$</td>
+                    <td className="px-5 py-3">{order.gig.deliveryTime} days</td>
+                    <td className="px-5 py-3">
                       {order.buyer.fullName} ({order.buyer.username})
                     </td>
-                    <td className="px-6 py-4">
+                    <td className="px-5 py-3">
                       {order.createdAt.split("T")[0]}
                     </td>
 
-                    <td className="px-6 py-4 ">
+                    <td className="px-5 py-3 ">
                       <Link
                         href={`/seller/orders/messages/${order.id}`}
                         className="font-medium text-blue-600  hover:underline"
