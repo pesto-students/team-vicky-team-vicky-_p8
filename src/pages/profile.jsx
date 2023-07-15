@@ -24,7 +24,7 @@ function Profile() {
     userName: "",
     fullName: "",
     description: "",
-    jwt: cookies.jwt,
+    // jwt: cookies.jwt,
   });
 
   useEffect(() => {
