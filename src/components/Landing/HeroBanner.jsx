@@ -85,7 +85,11 @@ function HomeBanner() {
             />
           </div>
           <button
-            className="bg-[#1DBF73] text-white px-12 text-lg font-semibold rounded-r-md"
+            disabled={searchData == ""}
+            className={
+              "bg-[#1DBF73] text-white px-12 ml-2 text-lg font-semibold rounded-r-md" +
+              `${searchData == "" && "cursor-not-allowed opacity-50"}`
+            }
             onClick={() => router.push(`/search?q=${searchData}`)}
           >
             Search

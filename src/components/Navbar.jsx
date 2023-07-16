@@ -198,13 +198,17 @@ function Navbar() {
               onChange={(e) => setSearchData(e.target.value)}
             />
             <button
-              className="bg-gray-900 py-1.5 text-white w-16 flex justify-center items-center"
+              disabled={searchData == ""}
+              className={
+                "bg-gray-900 py-1.5 text-white w-16 ml-2 flex justify-center items-center" +
+                `${searchData == "" && "cursor-not-allowed opacity-50"}`
+              }
               onClick={() => {
                 setSearchData("");
                 router.push(`/search?q=${searchData}`);
               }}
             >
-              <IoSearchOutline className="fill-white text-white h-6 w-6" />
+              <IoSearchOutline className="fill-white text-white h-7 w-6" />
             </button>
           </div>
           {!userInfo ? (
